@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'gradle:jdk8' } }
+    agent { docker { image 'gradle:alpine' } }
     
     environment {
 	TEST=1
