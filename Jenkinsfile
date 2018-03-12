@@ -37,5 +37,5 @@ pipeline {
 		echo 'This runs if the state of the pipeline changes, ex: Failure to Success'
 	}
   }
-}
+
 
