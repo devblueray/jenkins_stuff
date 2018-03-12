@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent { docker { image 'gradle:jdk8' } }
     
     environment {
 	TEST=1
@@ -9,15 +9,20 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version' 
-		sh 'echo "Hello World"'
- 		sh 'printenv'
+		sh './gradlew build
             }
         }
+	
+	stage('Test') {
+		sh './gradlew check'
+	}
     }
+}
+
    post {
    	always {
-		echo 'This always runs'
+		archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+		junit 'build/reports/**/*.xml
 	}
         
 	success {
