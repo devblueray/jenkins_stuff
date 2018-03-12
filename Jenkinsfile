@@ -18,7 +18,7 @@ pipeline {
 	failure {
 		echo 'This runs on failure'
 	}
-	chanced {
+	changed {
 		echo 'This runs if the state of the pipeline changes, ex: Failure to Success'
 	}
 	}
