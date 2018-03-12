@@ -1,10 +1,17 @@
 pipeline {
     agent { docker { image 'maven:3.3.3' } }
+    
+    environment {
+	TEST=1
+	ENGINE='sql'
+       }
+
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version' 
 		sh 'echo "Hello World"'
+ 		sh 'printenv'
             }
         }
     }
