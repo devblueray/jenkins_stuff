@@ -10,7 +10,7 @@ pipeline {
         stage('build') {
             steps {
 		echo "${WORKSPACE}"
-		sh 'chmod +x gradlew && ./gradlew build'
+		sh './gradlew build'
            	 }
         }
 	
