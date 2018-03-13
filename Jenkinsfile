@@ -10,6 +10,7 @@ pipeline {
         stage('build') {
             steps {
 		echo "${WORKSPACE}"
+		sh 'chown +x gradlew'
 		sh './gradlew build'
            	 }
         }
