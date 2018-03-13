@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-		echo ${WORKSPACE}
+		echo "${WORKSPACE}"
 		sh './gradlew build'
            	 }
         }
